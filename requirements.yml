@@ -1,9 +1,9 @@
 ---
 # ansible role requirements
 - name: vagrant
-  src: git+https://github.com/openwide-java/ansible-vagrant.git
+  src: git+https://github.com/powo-roles/ansible-vagrant.git
   version: master
 
-- name: owsi-core-ansible-roles
-  src: git+https://github.com/openwide-java/owsi-core-ansible-roles.git
+- name: igloo-ansible-roles
+  src: git+https://github.com/igloo-project/igloo-ansible-roles.git
   version: master

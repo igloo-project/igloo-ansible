@@ -28,50 +28,34 @@
 
   roles:
     - role: maven_build
-      mb_git_repository: git@github.com:openwide-java/owsi-core-parent.git
-      mb_git_branch: "{{  playbook_owsi_core_branch }}"
+      mb_git_repository: git@github.com:igloo-project/igloo-parent.git
+      mb_git_branch: "{{  playbook_igloo_branch }}"
       mb_check_files:
-        - "{{ mb_project_path }}/owsi-core/owsi-core-components/owsi-core-component-spring/target/owsi-core-component-spring-{{ playbook_owsi_core_version }}.jar"
-      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean package
-      mb_project_path: "{{ playbook_local_git_owsi_core_path }}"
+        - "{{ mb_project_path }}/igloo/igloo-components/igloo-component-spring/target/igloo-component-spring-{{ playbook_igloo_version }}.jar"
+      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean install
+      mb_project_path: "{{ playbook_local_git_igloo_path }}"
       mb_rebuild: no
       mb_mvn_environment:
         JAVA_HOME: "{{ playbook_local_java_home }}"
-        MAVEN_OPTS: -Xmx2048m
+        MAVEN_OPTS: -Xmx2048m -Denforcer.skip=true
       delegate_to: localhost
       run_once: yes
-      when: playbook_build_owsi_core
+      when: playbook_build_igloo
 
     - role: maven_build
-      mb_git_repository: git@github.com:openwide-java/{{ playbook_git_repository_name }}.git
+      mb_git_repository: git@github.com:igloo-project/{{ playbook_git_repository_name }}.git
       mb_git_branch: "{{  playbook_project_branch }}"
       mb_check_files:
         - "{{ playbook_local_git_repo_path }}/basic-application/{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
-      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean package
+      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean install
       mb_project_path: "{{ playbook_local_git_repo_path }}"
       mb_rebuild: no
       mb_mvn_environment:
         JAVA_HOME: "{{ playbook_local_java_home }}"
-        MAVEN_OPTS: -Xmx2048m
+        MAVEN_OPTS: -Xmx2048m -Denforcer.skip=true
       delegate_to: localhost
       run_once: yes
-      when: playbook_skip_build == False and playbook_repository_type == "github"
-
-    - role: maven_build
-      mb_git_repository: git@git.projects.openwide.fr:open-wide/{{ playbook_git_repository_name }}.git
-      mb_git_branch: "{{  playbook_project_branch }}"
-      mb_check_files:
-        - "{{ playbook_local_git_repo_path }}/basic-application/{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
-      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean package
-      mb_project_path: "{{ playbook_local_git_repo_path }}"
-      mb_rebuild: no
-      mb_mvn_environment:
-        JAVA_HOME: "{{ playbook_local_java_home }}"
-        MAVEN_OPTS: -Xmx2048m
-      delegate_to: localhost
-      run_once: yes
-      when: playbook_skip_build == False and playbook_repository_type == "gitlab"
-
+      when: not playbook_skip_build
 
 - hosts: "{{ playbook_host }}"
   become: yes
@@ -81,6 +65,9 @@
     - name: maven_artifact requisites
       package:
         name: python-lxml
+
+    - debug:
+        msg: "{{ ansible_distribution_major_version }}"
 
   roles:
 

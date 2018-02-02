@@ -1,9 +1,12 @@
+igloo.vagrant            ansible_ssh_common_args="-F {{ inventory_file | dirname }}/../vagrant/{{ inventory_hostname }}/ssh_config"
+
 [local]
 localhost
 palma
+lalmeras
 
 [vagrant]
-project-name.vagrant
+igloo.vagrant
 
 [heb-production]
 virtual-machine.address ansible_user=root

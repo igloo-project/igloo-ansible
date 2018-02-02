@@ -1,16 +1,18 @@
 ---
 # customizables variables
 playbook_application_name: basic-application
-playbook_git_repository_name: owsi-core-parent
+playbook_git_repository_name: igloo-parent
 playbook_context_name: basic-application
-playbook_repository_type: github
 playbook_remote_user: openwide
 playbook_environment: development
-playbook_project_branch: ft-flyway
+playbook_project_branch: ft-hibernate-5.3
 playbook_project_version: 0.1-SNAPSHOT
 
-playbook_owsi_core_branch: dev
-playbook_owsi_core_version: 0.14-SNAPSHOT
+playbook_igloo_branch: dev
+playbook_igloo_version: 1.0-SNAPSHOT
+
+playbook_letsencrypt: no
+playbook_letsencrypt_renew_email: "test@example.com"
 
 
 # customization rarely needed
@@ -18,7 +20,7 @@ playbook_download_target_path: /data/work
 playbook_is_vagrant_host: "{{ 'vagrant' in group_names }}"
 playbook_local_git_repo: ~/git/{{ playbook_git_repository_name }}-livraison
 playbook_local_git_repo_path: "{{ playbook_local_git_repo | expanduser }}"
-playbook_local_java_home: "{{ '~/Documents/apps/jdk-1.8.112-x86_64' | expanduser }}"
+playbook_local_java_home: "{{ '~/Documents/apps/jdk-8u152-linux-x64' | expanduser }}"
 playbook_application_path: /data/services/web/{{ playbook_application_name }}
 playbook_application_tomcat_path: "{{ playbook_application_path }}/tomcat"
 playbook_ssl_certificate: /etc/httpd/certs/{{ playbook_application_name }}.crt
@@ -27,11 +29,8 @@ playbook_ssl_cacertificate: "{{ playbook_ssl_certificate }}"
 playbook_httpd_ssl_certificate: "{{ playbook_ssl_certificate }}"
 playbook_httpd_ssl_key: "{{ playbook_ssl_key }}"
 playbook_httpd_ssl_cacertificate: "{{ playbook_ssl_cacertificate }}"
-playbook_local_git_owsi_core: ~/git/owsi-core-livraison
-playbook_local_git_owsi_core_path: "{{ playbook_local_git_owsi_core | expanduser }}"
-
-playbook_letsencrypt: no
-playbook_letsencrypt_renew_email: "{{ playbook_application_name }}-letsencrypt@lists.projects.openwide.fr"
+playbook_local_git_igloo: ~/git/igloo-livraison
+playbook_local_git_igloo_path: "{{ playbook_local_git_igloo | expanduser }}"
 
 playbook_front_server_name: "{{ inventory_hostname }}"
 playbook_tomcat_ajp_port: 8009
@@ -54,7 +53,7 @@ playbook_smtp_port: 25
 playbook_config_properties: {
   'db.user': "{{ playbook_postgresql_user }}",
   'db.password': "{{ playbook_postgresql_password }}",
-  'db.jdbcUrl': 'jdbc:pgsql://{{ playbook_postgresql_host }}:{{ playbook_postgresql_port }}/{{ playbook_postgresql_database }}',
+  'db.jdbcUrl': 'jdbc:postgresql://{{ playbook_postgresql_host }}:{{ playbook_postgresql_port }}/{{ playbook_postgresql_database }}',
   'db.maxPoolSize': "{{ playbook_postgresql_maxPoolSize }}",
   'hibernate.defaultSchema': "{{ playbook_postgresql_schema }}",
   'data.path': '{{ playbook_application_path }}/data',

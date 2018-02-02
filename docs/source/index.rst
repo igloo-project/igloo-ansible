@@ -1,10 +1,10 @@
-.. project-name documentation master file, created by
-   sphinx-quickstart on Fri Jul  7 09:24:39 2017.
+.. igloo-ansible documentation master file, created by
+   sphinx-quickstart on Thu Jan 12 09:58:02 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to new project-name's documentation!
-=====================================
+Welcome to igloo-ansible's documentation!
+=========================================
 
 .. include:: introduction.rst
 

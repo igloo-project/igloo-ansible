@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# project-name documentation build configuration file, created by
-# sphinx-quickstart on Fri Jul  7 09:24:39 2017.
+# igloo-ansible documentation build configuration file, created by
+# sphinx-quickstart on Thu Jan 12 09:58:02 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -46,9 +46,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'project-name'
-copyright = u'2017, Laurent Almeras, Julien Benichou, Mathieu Palley'
-author = u'Laurent Almeras, Julien Benichou, Mathieu Palley'
+project = u'igloo-ansible'
+copyright = u'2017, Laurent Almeras'
+author = u'Laurent Almeras'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -92,6 +92,9 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # documentation.
 #
 # html_theme_options = {}
+html_theme_options = {
+  'bootswatch_theme': "united"
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -102,8 +105,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'project-namedoc'
-
+htmlhelp_basename = 'igloo-ansible'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -129,8 +131,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'project-name.tex', u'project-name Documentation',
-     u'Admin', 'manual'),
+    (master_doc, 'igloo-ansible.tex', u'igloo-ansible Documentation',
+     u'Laurent Almeras', 'manual'),
 ]
 
 
@@ -139,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'project-name', u'project-name Documentation',
+    (master_doc, 'igloo-ansible', u'igloo-ansible Documentation',
      [author], 1)
 ]
 
@@ -150,7 +152,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'project-name', u'project-name Documentation',
-     author, 'project-name', 'One line description of project.',
+    (master_doc, 'igloo-ansible', u'igloo-ansible Documentation',
+     author, 'igloo-ansible', 'One line description of project.',
      'Miscellaneous'),
 ]
