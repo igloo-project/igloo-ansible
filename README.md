@@ -10,7 +10,11 @@ This project is a template for igloo application deployment
 * add your username in *local* group (inventory/hosts)
 * modify playbook\_project\_git\_url (common.yml)
 * check your smtp configuration
+* configure playbook\_remote\_user
 
+# Migration for old project
+
+* renamed: playbook\_environment -> playbook\_maven\_environment and playbook\_profile
 
 # TODO
 

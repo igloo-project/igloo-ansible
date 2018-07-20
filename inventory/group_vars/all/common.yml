@@ -2,8 +2,8 @@
 # customizables variables
 playbook_application_name: basic-application
 playbook_context_name: basic-application
-playbook_remote_user: openwide
-playbook_environment: development
+playbook_remote_user: TODO
+playbook_maven_environment: null
 playbook_project_git_url: TODO
 playbook_project_branch: dev
 playbook_project_version: 0.1-SNAPSHOT

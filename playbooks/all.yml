@@ -32,7 +32,7 @@
       mb_git_branch: "{{  playbook_igloo_branch }}"
       mb_check_files:
         - "{{ mb_project_path }}/igloo/igloo-components/igloo-component-spring/target/igloo-component-spring-{{ playbook_igloo_version }}.jar"
-      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean install
+      mb_mvn_command: mvn {{ '-P' + playbook_maven_profile if playbook_maven_profile is defined and playbook_maven_profile else '' }} -DskipTests -am clean install
       mb_project_path: "{{ playbook_local_git_igloo_path }}"
       mb_rebuild: no
       mb_mvn_environment:
@@ -47,7 +47,7 @@
       mb_git_branch: "{{  playbook_project_branch }}"
       mb_check_files:
         - "{{ playbook_local_git_repo_path }}/basic-application/{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
-      mb_mvn_command: mvn -P{{ playbook_environment }} -DskipTests -am clean install
+      mb_mvn_command: mvn {{ '-P' + playbook_maven_profile if playbook_maven_profile is defined and playbook_maven_profile else '' }} -DskipTests -am clean install
       mb_project_path: "{{ playbook_local_git_repo_path }}"
       mb_rebuild: no
       mb_mvn_environment:
