@@ -8,7 +8,7 @@
   gather_facts: no
   roles:
     - role: vagrant
-      vagrant_base: 'centos/7'
+      vagrant_base: "{{ playbook_vagrant_base }}"
       vagrant_task: 'up'
       vagrant_host: "{{ host_alias | default(inventory_hostname) }}"
       vagrant_root_path: "{{ inventory_dir | dirname }}/vagrant"
