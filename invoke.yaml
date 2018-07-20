@@ -4,11 +4,4 @@ virtualenv_path: .builddir/virtualenv
 ansible_default_args: --verbose
 ansible:
   skip: no
-  version: '2.4.3.0'
-
-sphinx:
-  skip: no
-  version: '1.5.3'
-docs_rsync_target:
-docs_online_path: 
-grp_exec:
+  version: '2.6.1'

@@ -43,7 +43,7 @@
       when: playbook_build_igloo
 
     - role: maven_build
-      mb_git_repository: git@github.com:igloo-project/{{ playbook_git_repository_name }}.git
+      mb_git_repository: "{{ playbook_project_git_url }}"
       mb_git_branch: "{{  playbook_project_branch }}"
       mb_check_files:
         - "{{ playbook_local_git_repo_path }}/basic-application/{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
@@ -55,7 +55,7 @@
         MAVEN_OPTS: -Xmx2048m -Denforcer.skip=true
       delegate_to: localhost
       run_once: yes
-      when: not playbook_skip_build
+      when: playbook_build_project
 
 - hosts: "{{ playbook_host }}"
   become: yes

@@ -1,12 +1,18 @@
 ---
 # customizables variables
 playbook_application_name: basic-application
-playbook_git_repository_name: igloo-parent
 playbook_context_name: basic-application
 playbook_remote_user: openwide
 playbook_environment: development
-playbook_project_branch: ft-hibernate-5.3
+playbook_project_git_url: TODO
+playbook_project_branch: dev
 playbook_project_version: 0.1-SNAPSHOT
+
+# provided on command-line (by tasks.py)
+# playbook_build_igloo: false
+# playbook_build_project: false
+
+playbook_git_repository_name: "{{ playbook_project_git_url | basename | replace('.git', '') }}"
 
 playbook_igloo_branch: dev
 playbook_igloo_version: 1.0-SNAPSHOT
@@ -20,7 +26,7 @@ playbook_download_target_path: /data/work
 playbook_is_vagrant_host: "{{ 'vagrant' in group_names }}"
 playbook_local_git_repo: ~/git/{{ playbook_git_repository_name }}-livraison
 playbook_local_git_repo_path: "{{ playbook_local_git_repo | expanduser }}"
-playbook_local_java_home: "{{ '~/Documents/apps/jdk-8u152-linux-x64' | expanduser }}"
+playbook_local_java_home: "{{ '~/Documents/apps/jdk-8' | expanduser }}"
 playbook_application_path: /data/services/web/{{ playbook_application_name }}
 playbook_application_tomcat_path: "{{ playbook_application_path }}/tomcat"
 playbook_ssl_certificate: /etc/httpd/certs/{{ playbook_application_name }}.crt

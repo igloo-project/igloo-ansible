@@ -10,11 +10,15 @@ if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
 	return;
 fi
 
-echo -e "\ncheck virtualenv installation\n"
-if [ -f /usr/bin/apt-get ]; then
-	sudo apt-get install python-virtualenv libssl-dev python-dev gcc libxml2-dev python-lxml libffi-dev
-elif [ -f /usr/bin/dnf ]; then
-	sudo dnf install python2-virtualenv openssl-devel python-devel gcc libxml2-devel python-lxml libffi-devel
+if [ -z "$PACKAGE_INSTALLED" ]; then
+	echo -e "\ncheck virtualenv installation\n"
+	if [ -f /usr/bin/apt-get ]; then
+		sudo apt-get install python-virtualenv libssl-dev python-dev gcc libxml2-dev python-lxml
+	elif [ -f /usr/bin/yum ]; then
+		sudo yum install -y python-virtualenv python2-virtualenv openssl-devel python-devel gcc libxml2-devel python-lxml
+	elif [ -f /usr/bin/dnf ]; then
+		sudo dnf install python2-virtualenv openssl-devel python-devel gcc libxml2-devel python-lxml
+	fi
 fi
 
 mkdir -p .builddir/
@@ -23,8 +27,8 @@ rm -rf .builddir/invoke
 virtualenv .builddir/invoke
 
 echo -e "\ninstall invoke\n"
-./.builddir/invoke/bin/pip install invoke
-./.builddir/invoke/bin/pip install click==6.0
+./.builddir/invoke/bin/python -m pip install invoke
+./.builddir/invoke/bin/python -m pip install click==6.0
 
 here=$( readlink -f . )
 python=$( readlink -f ./.builddir/invoke/bin/python )
