@@ -4,6 +4,14 @@
   src: git+https://github.com/powo-roles/ansible-vagrant.git
   version: master
 
+- name: powo.utils
+  src: git+https://github.com/powo-roles/powo.utils.git
+  version: master
+
+- name: postgresql
+  src: git+https://github.com/igloo-project/roles-postgresql
+  version: ft-debian
+
 - name: igloo-ansible-roles
   src: git+https://github.com/igloo-project/igloo-ansible-roles.git
-  version: master
+  version: ft-update
