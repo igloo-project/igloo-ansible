@@ -1,7 +1,5 @@
 #! /bin/bash
 
-set -e
-
 if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
 	# file is sourced
 	echo "Modifying PATH env variable"
@@ -9,6 +7,8 @@ if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
 	echo "PATH=$PATH"
 	return;
 fi
+
+set -e
 
 if [ -z "$PACKAGE_INSTALLED" ]; then
 	echo -e "\ncheck virtualenv installation\n"
