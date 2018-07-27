@@ -105,6 +105,7 @@
     - role: filesystem
       filesystem_application_name: "{{ playbook_application_name }}"
       filesystem_application_user: "{{ playbook_remote_user }}"
+      filesystem_application_folders: "{{ playbook_application_folders }}"
 
     - role: java
       java_download_path: /data/work

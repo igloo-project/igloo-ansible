@@ -8,6 +8,10 @@ playbook_project_git_url: TODO
 playbook_project_branch: dev
 playbook_project_version: 0.1-SNAPSHOT
 playbook_vagrant_base: debian/stretch64
+playbook_application_folders:
+  - path: "/data/services/{{ playbook_application_name }}"
+    mode: u=rwx,o=rx
+    owner: "{{ playbook_remote_user }}"
 
 # provided on command-line (by tasks.py)
 # playbook_build_igloo: false
