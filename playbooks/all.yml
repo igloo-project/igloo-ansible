@@ -46,7 +46,7 @@
       mb_git_repository: "{{ playbook_project_git_url }}"
       mb_git_branch: "{{  playbook_project_branch }}"
       mb_check_files:
-        - "{{ playbook_local_git_repo_path }}/basic-application/{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
+        - "{{ playbook_local_git_repo_path }}/{{ playbook_maven_folder }}{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
       mb_mvn_command: mvn {{ '-P' + playbook_maven_profile if playbook_maven_profile is defined and playbook_maven_profile else '' }} -DskipTests -am clean install
       mb_project_path: "{{ playbook_local_git_repo_path }}"
       mb_rebuild: no
@@ -177,7 +177,7 @@
           shutdown_port: "{{ playbook_tomcat_shutdown_port }}"
 
     - role: war
-      war_application_war_src: "{{ playbook_local_git_repo_path }}/basic-application/{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
+      war_application_war_src: "{{ playbook_local_git_repo_path }}/{{ playbook_maven_folder }}{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
       war_application_war_remote_src: no
       war_application_user: "{{ playbook_remote_user }}"
       war_tomcat_service: "tomcat7@{{ playbook_application_name }}"

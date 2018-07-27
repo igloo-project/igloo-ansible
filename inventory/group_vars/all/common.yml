@@ -17,6 +17,9 @@ playbook_application_folders:
 # playbook_build_igloo: false
 # playbook_build_project: false
 
+# basic-application is in a repository subfolder
+# else use root folder
+playbook_maven_folder: "{{ 'basic-application/' if playbook_application_name == 'basic-application' else '' }}"
 playbook_git_repository_name: "{{ playbook_project_git_url | basename | replace('.git', '') }}"
 
 playbook_igloo_branch: dev
