@@ -173,11 +173,22 @@ def ansible_run(ctx, virtualenv_path=None, playbook=None, check=False, diff=Fals
 
 
 @task(name='all', pre=[configure])
-def all(ctx, host, ansible_args='', build_igloo=False, build_project=False):
+def all(ctx, host, ansible_args='', build_igloo=False, build_project=False, igloo_profile=None, maven_profile=None):
     """
     Deploy all on provided host
+
+    igloo-profile : from 1.0 version (runtime configuration)
+    maven-profile (deprecated): for pre 1.0 igloo (buildtime configuration)
     """
-    extra_vars = {'playbook_host': host, 'playbook_build_igloo': build_igloo, 'playbook_build_project': build_project}
+    extra_vars = {
+            'playbook_host': host,
+            'playbook_build_igloo': build_igloo,
+            'playbook_build_project': build_project
+    }
+    if maven_profile:
+        extra_vars['playbook_maven_profile'] = maven_profile
+    if igloo_profile:
+        extra_vars['playbook_igloo_profile'] = igloo_profile
     _ansible_playbook(ctx, playbook='playbooks/all.yml',
                       ansible_args=ansible_args + ' --ask-become-pass',
                       extra_vars=extra_vars)
