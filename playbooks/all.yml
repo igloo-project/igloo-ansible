@@ -112,13 +112,13 @@
       java_runtime_path: /data/opt
       java_results_var: jdks
       java_runtimes:
-        - version: 8u131
-          version_build: 11
+        - version: 8u181
+          version_build: 13
           arch: x64
           type: jdk
-          checksum: md5:75b2cb2249710d822a60f83e28860053
-          key: jdk-8u131-x64
-          id: d54c1d3a095b4ff2b6607d096fa80163
+          checksum: sha256:1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3
+          key: jdk-8u181-x64
+          id: 96a7b8442fe848ef90c96a2fad6ed6d1
 
     - role: ssl_selfsigned
       ssl_selfsigned_cn: "{{ playbook_front_server_name }}"
@@ -164,7 +164,7 @@
       tomcat_checksum: md5:080075877a66adf52b7f6d0013fa9730
       tomcat_dest: /data/opt/tomcat-8.5.24
       tomcat_default_user: "{{ playbook_remote_user }}"
-      tomcat_default_java_home: "{{ jdks['jdk-8u131-x64'].path }}"
+      tomcat_default_java_home: "{{ jdks['jdk-8u181-x64'].path }}"
       tomcat_timeout_stop: 30s
       tomcat_download_target_path: "{{ playbook_download_target_path }}"
       tomcat_default_extra_opts: "{{ '-Digloo.profile=' + playbook_igloo_profile if playbook_igloo_profile is defined and playbook_igloo_profile else none }}"
