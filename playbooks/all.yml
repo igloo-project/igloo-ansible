@@ -159,15 +159,16 @@
                 - name: "{{ playbook_postgresql_database }}"
                   privileges: CONNECT,CREATE
 
-    - role: tomcat7
-      tomcat7_version: 7.0.73
-      tomcat7_checksum: md5:ca9a50ad51d79282f9ca397514c755d7
-      tomcat7_dest: /data/opt/tomcat-7.0.73
-      tomcat7_default_user: "{{ playbook_remote_user }}"
-      tomcat7_default_java_home: "{{ jdks['jdk-8u131-x64'].path }}"
-      tomcat7_timeout_stop: 30s
-      tomcat7_download_target_path: "{{ playbook_download_target_path }}"
-      tomcat7_catalina_bases:
+    - role: tomcat8
+      tomcat_version: 8.5.24
+      tomcat_checksum: md5:080075877a66adf52b7f6d0013fa9730
+      tomcat_dest: /data/opt/tomcat-8.5.24
+      tomcat_default_user: "{{ playbook_remote_user }}"
+      tomcat_default_java_home: "{{ jdks['jdk-8u131-x64'].path }}"
+      tomcat_timeout_stop: 30s
+      tomcat_download_target_path: "{{ playbook_download_target_path }}"
+      tomcat_default_extra_opts: "{{ '-Digloo.profile=' + playbook_igloo_profile if playbook_igloo_profile is defined and playbook_igloo_profile else none }}"
+      tomcat_catalina_bases:
         - name: "{{ playbook_application_name }}"
           path: "{{ playbook_application_tomcat_path }}"
           apj_port: "{{ playbook_tomcat_ajp_port }}"
@@ -180,6 +181,6 @@
       war_application_war_src: "{{ playbook_local_git_repo_path }}/{{ playbook_maven_folder }}{{ playbook_application_name }}-webapp/target/{{ playbook_application_name }}.war"
       war_application_war_remote_src: no
       war_application_user: "{{ playbook_remote_user }}"
-      war_tomcat_service: "tomcat7@{{ playbook_application_name }}"
+      war_tomcat_service: "tomcat@{{ playbook_application_name }}"
       war_tomcat_catalina_base: "{{ playbook_application_tomcat_path }}"
       war_context_name: "{{ playbook_context_name }}"
