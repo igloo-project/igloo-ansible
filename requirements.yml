@@ -19,3 +19,7 @@
 - name: igloo-ansible-roles
   src: git+https://github.com/igloo-project/igloo-ansible-roles.git
   version: ft-update
+
+- name: letsencrypt
+  src: git+https://github.com/igloo-project/ansible-letsencrypt.git
+  version: master

@@ -1,5 +1,9 @@
 igloo.vagrant            ansible_ssh_common_args="-F {{ inventory_file | dirname }}/../vagrant/{{ inventory_hostname }}/ssh_config"
 
+[all:vars]
+# bindings for firewalld available only for python3 in debian
+ansible_interpreter=/usr/bin/python3
+
 [local]
 localhost
 palma
