@@ -29,6 +29,13 @@ playbook_igloo_version: 1.0-SNAPSHOT
 playbook_letsencrypt: no
 playbook_letsencrypt_renew_email: "test@example.com"
 
+playbook_java_type: jdk
+playbook_java_version: 8u191
+playbook_java_version_build: 12
+playbook_java_arch: x64
+playbook_java_checksum: sha256:53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65
+playbook_java_id: 2787e4a523244c269598db4e85c51e0c
+playbook_java_key: "{{ playbook_java_type }}-{{ playbook_java_version }}-{{ playbook_java_arch }}"
 
 # customization rarely needed
 playbook_download_target_path: /data/work

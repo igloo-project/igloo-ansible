@@ -69,6 +69,20 @@
     - debug:
         msg: "{{ ansible_distribution_major_version }}"
 
+    - block:
+
+      - name: locales · check fr_FR.UTF8
+        shell: "locale -a | grep -i 'fr_FR.utf8'"
+        ignore_errors: yes
+        register: check_locale
+        changed_when: check_locale.stdout == ""
+
+      - name: locales · reinstall glibc-common
+        shell: "yum -y reinstall glibc-common"
+        when: check_locale.stdout == ""
+
+      when: playbook_is_vagrant_host and ansible_os_family == 'RedHat'
+
   roles:
     - role: powo.utils
 
@@ -112,13 +126,13 @@
       java_runtime_path: /data/opt
       java_results_var: jdks
       java_runtimes:
-        - version: 8u181
-          version_build: 13
-          arch: x64
-          type: jdk
-          checksum: sha256:1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3
-          key: jdk-8u181-x64
-          id: 96a7b8442fe848ef90c96a2fad6ed6d1
+        - version: "{{ playbook_java_version }}"
+          version_build: "{{ playbook_java_version_build }}"
+          arch: "{{ playbook_java_arch }}"
+          type: "{{ playbook_java_type }}"
+          checksum: "{{ playbook_java_checksum }}"
+          key: "{{ playbook_java_key }}"
+          id: "{{ playbook_java_id }}"
 
     - role: ssl_selfsigned
       ssl_selfsigned_cn: "{{ playbook_front_server_name }}"
@@ -164,7 +178,7 @@
       tomcat_checksum: sha512:ecdee920fcb75bf30cd87c350e0732e8fa566911cd16cf2759689edd324ebac911c0d154e79ffc67e948b29eacc49c88dadc5954383d3c4af2fdb952f3d1c371
       tomcat_dest: /data/opt/tomcat-9.0.10
       tomcat_default_user: "{{ playbook_remote_user }}"
-      tomcat_default_java_home: "{{ jdks['jdk-8u181-x64'].path }}"
+      tomcat_default_java_home: "{{ jdks[ playbook_java_key ].path }}"
       tomcat_timeout_stop: 30s
       tomcat_download_target_path: "{{ playbook_download_target_path }}"
       tomcat_default_extra_opts: "{{ '-Digloo.profile=' + playbook_igloo_profile if playbook_igloo_profile is defined and playbook_igloo_profile else none }}"
