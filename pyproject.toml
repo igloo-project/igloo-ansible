@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "igloo_ansible"
+author-email = "laurent.almeras@kobalt.fr"
+author = "Kobalt, Laurent Almeras"
+
+[tool.flit.scripts]
+igloo-ansible = "clickable.click:main"

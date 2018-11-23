@@ -1,0 +1,9 @@
+name: clickable_bootstrap
+channels:
+  - defaults
+dependencies:
+  - python=3
+  - pip
+  - pip:
+     - clickable
+
