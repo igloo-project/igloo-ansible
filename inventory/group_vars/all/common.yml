@@ -1,4 +1,6 @@
 ---
+## TODO: drop file (all values in minimal and extra)
+
 # customizables variables
 playbook_application_name: basic-application
 playbook_context_name: basic-application

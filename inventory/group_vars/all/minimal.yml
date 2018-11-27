@@ -1,0 +1,20 @@
+---
+
+## used to name folders, name context, postgresql username, ...
+## special characters are replaced by _
+playbook_application_name: basic-application
+## used if build is done by ansible (see playbook_build_project)
+playbook_project_git_url: git@github.com:igloo-project/igloo-parent.git
+## leave empty for a classic project
+playbook_maven_folder: basic-application
+## who is notified on
+playbook_letsencrypt_renew_email: "test@example.com"
+## application public vhost
+playbook_front_server_name: myapp.domain.org
+
+## performance related configuration - keep default (commented) if possible
+# playbook_tomcat_max_threads: 15
+# playbook_postgresql_maxPoolSize: 30
+
+## smtp configuration
+playbook_smtp_host: localhost

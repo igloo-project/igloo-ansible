@@ -1,0 +1,34 @@
+---
+
+## set to context path if you want NOT to use / as context path
+## DO NOT INCLUDE leading and trailing / chars
+# playbook_context_name: ''
+
+## override if tomcat is launched by another user
+# playbook_remote_user: tomcat
+
+## downloads location
+# playbook_download_target_path: /data/work
+
+## application installation path (root of tomcat/, ...)
+# playbook_application_path: /data/services/web/{{ playbook_application_name }}
+
+## parent folder for git clones (if build activated)
+# playbook_local_git_folder: "{{ '~/git' | expanduser }}"
+
+## JAVA_HOME used for **building**
+# playbook_local_java_home: "{{ '~/Documents/apps/jdk-8' | expanduser }}"
+
+## tomcat configuration
+# playbook_tomcat_ajp_port: 8009
+# playbook_tomcat_http_port: 8080
+# playbook_tomcat_shutdown_port: 8005
+
+## postgresql configuration
+## (default database name based on application's name)
+# playbook_postgresql_schema: "{{ playbook_postgresql_user }}"
+# playbook_postgresql_user: "{{ _playbook_application_name_database }}"
+# playbook_postgresql_password: "{{ _playbook_application_name_database }}"
+
+## configuration.properties
+# playbook_config_properties: {}
