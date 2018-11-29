@@ -19,6 +19,26 @@
 ## JAVA_HOME used for **building**
 # playbook_local_java_home: "{{ '~/Documents/apps/jdk-8' | expanduser }}"
 
+## java installation
+## Use openjdk OR oracle
+#### openjdk: override version only, or all values
+#playbook_java_version: 1.8.0
+#playbook_java_package: java-{{ playbook_java_version }}-openjdk-headless
+#playbook_java_key: "{{ playbook_java_package }}"
+#### oracle: define all values; check that id and checksum are up to date
+#playbook_java_package: null
+#playbook_java_type: jdk
+#playbook_java_version: 8u191
+#playbook_java_version_build: 12
+#playbook_java_arch: x64
+#playbook_java_checksum: sha256:53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65
+#playbook_java_id: 2787e4a523244c269598db4e85c51e0c
+#playbook_java_key: "{{ playbook_java_type }}-{{ playbook_java_version }}-{{ playbook_java_arch }}"
+#### override all playbook_java_runtimes: use only if needed
+#### runtime definition built from playbook_java_* values is available in playbook_java_runtime
+#playbook_java_runtimes:
+#  - {{ playbook_java_runtime }}
+
 ## tomcat configuration
 # playbook_tomcat_ajp_port: 8009
 # playbook_tomcat_http_port: 8080
