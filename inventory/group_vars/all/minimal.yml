@@ -5,8 +5,8 @@
 playbook_application_name: basic-application
 ## used if build is done by ansible (see playbook_build_project)
 playbook_project_git_url: git@github.com:igloo-project/igloo-parent.git
-## leave empty for a classic project
-playbook_maven_folder: basic-application
+## needed only for build; override if your maven root is in a subfolder
+# playbook_maven_folder:
 ## who is notified on
 playbook_letsencrypt_renew_email: "test@example.com"
 ## application public vhost
@@ -18,3 +18,9 @@ playbook_front_server_name: myapp.domain.org
 
 ## smtp configuration
 playbook_smtp_host: localhost
+
+## only for old projects; maven profile no longer needed
+# playbook_maven_profile: production
+
+## override with group_vars
+playbook_igloo_profile: qualification
