@@ -15,3 +15,7 @@ docs/build/
 
 !*/.gitkeep
 
+# python related folders
+poetry.lock
+*.egg-info
+dist/

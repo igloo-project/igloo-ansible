@@ -1,11 +1,21 @@
-[build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
+[tool.poetry]
+name = "igloo-ansible"
+version = "0.1.0"
+description = ""
+authors = ["Laurent Almeras <laurent.almeras@kobalt.fr>"]
+packages = [ { include = "igloo_ansible", from = ".poetry" } ]
 
-[tool.flit.metadata]
-module = "igloo_ansible"
-author-email = "laurent.almeras@kobalt.fr"
-author = "Kobalt, Laurent Almeras"
+[tool.poetry.dependencies]
+python = ">=3.5"
+clickable = { git = "https://github.com/lalmeras/clickable.git", branch = "ft-ansible" }
 
-[tool.flit.scripts]
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
 igloo-ansible = "clickable.click:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+
