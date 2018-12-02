@@ -8,6 +8,8 @@ packages = [ { include = "igloo_ansible", from = ".poetry" } ]
 [tool.poetry.dependencies]
 python = ">=3.5"
 clickable = { git = "https://github.com/lalmeras/clickable.git", branch = "ft-ansible" }
+clickable_ansible = { git = "https://github.com/lalmeras/clickable_ansible.git", branch = "master" }
+clickable_igloo = { git = "https://github.com/igloo-project/clickable_igloo.git", branch = "master" }
 
 [tool.poetry.dev-dependencies]
 
