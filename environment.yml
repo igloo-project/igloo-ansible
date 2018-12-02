@@ -5,5 +5,5 @@ dependencies:
   - python=3
   - pip
   - pip:
-     - clickable
+     - poetry
 
