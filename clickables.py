@@ -30,7 +30,7 @@ def igloo_ansible(ctx):
     ctx.obj = {}
     ctx.obj['path_resolver'] = clickable.utils.PathResolver(sys.modules[__name__])
     ctx.obj['project_root'] = os.path.dirname(__file__)
-    conf_path = os.path.join(ctx.obj['project_root'], 'clickable.yaml')
+    conf_path = os.path.join(ctx.obj['project_root'], 'clickables.yaml')
     if os.path.isfile(conf_path):
         with open(conf_path) as f:
             yaml = YAML(typ='safe')
