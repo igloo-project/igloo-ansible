@@ -2,10 +2,9 @@
 .builddir/
 delivery/*
 .ropeproject/
-log/*
 dependencies/galaxy-roles/
 pyenv/
-/vagrant/
+run/
 
 *.retry
 *.pyc
