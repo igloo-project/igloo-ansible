@@ -6,8 +6,6 @@ ansible_interpreter=/usr/bin/python3
 
 [local]
 localhost
-palma
-lalmeras
 
 [vagrant]
 igloo.vagrant
