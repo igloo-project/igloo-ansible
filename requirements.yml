@@ -10,11 +10,11 @@
 
 - name: postgresql
   src: git+https://github.com/igloo-project/roles-postgresql
-  version: ft-debian
+  version: master
 
 - name: postgresql_cluster
   src: git+https://github.com/igloo-project/roles-postgresql-cluster
-  version: ft-debian
+  version: master
 
 - name: igloo-ansible-roles
   src: git+https://github.com/igloo-project/igloo-ansible-roles.git
