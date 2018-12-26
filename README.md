@@ -1,21 +1,27 @@
 This project is a template for igloo application deployment
 
-# Modification needed
+# Initialize a new project
 
-* configure your own ssh keys (authorized\_keys.yml)
-* configure letsencrypt support (common.yml)
-* check database name (configured from application name by default) (common.yml)
-* check notification filtering configuration (common.yml)
-* configure your own groups if needed
-* add your username in *local* group (inventory/hosts)
-* modify playbook\_project\_git\_url (common.yml)
-* check your smtp configuration
-* configure playbook\_remote\_user
+* checkout a raw igloo-ansible project. Rename project folder as it is named to initialize virtualenv
+  (bootstrap.sh script).
+* rename boostrap/igloo\_ansible to bootstrap/myproject.
+* in bootstrap/pyproject.toml, rename igloo\_ansible (1 occurrence) and igloo-ansible (2 occurrences)
+  to myproject.
+* run ``./bootstrap/bootstrap.sh``:
+  * this script installs a miniconda environment with ``myproject`` command.
+  * ``myproject`` command is handled by clickables.py file.
+  * run the provided command at the end for the script for environment activation: ``source ...``.
+
+* update ``inventory/hosts`` for vagrant hostnames and your deployment hostnames
+
+* copy 01-igloo-minimal.yml and rename it to minimal.yml and update configuration.
+* 01-igloo-extra.yml and 01-igloo-private.yml *can* be used to customize more items.
+* rename folders/files in group\_vars and host\_vars and override values when needed
+  * update ssl certificates' related values
+  * update ``ansible_user`` used for ssh connection
 
 # Migration for old project
 
 * renamed: playbook\_environment -> playbook\_maven\_environment and playbook\_profile
+* try to minimize overrided configurations
 
-# TODO
-
-Get rid of the need to add username in *local* group.
