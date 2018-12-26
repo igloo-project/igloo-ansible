@@ -4,13 +4,10 @@ from __future__ import print_function
 
 import logging
 import os
-import pprint
-import sys
 
 import click
-from ruamel.yaml import YAML
 
-from clickable.utils import PathResolver
+import clickable.utils
 import clickable.coloredlogs
 import clickable_ansible
 import clickable_igloo
@@ -27,18 +24,7 @@ def igloo_ansible(ctx):
     """
     Deployment or development tasks
     """
-    ctx.obj = {}
-    ctx.obj['path_resolver'] = clickable.utils.PathResolver(sys.modules[__name__])
-    ctx.obj['project_root'] = os.path.dirname(__file__)
-    conf_path = os.path.join(ctx.obj['project_root'], 'clickables.yml')
-    if os.path.isfile(conf_path):
-        with open(conf_path) as f:
-            yaml = YAML(typ='safe')
-            configuration = yaml.load(f)
-            ctx.obj.update(configuration)
-    logger.debug('loaded configuration: \n{}'.format(pprint.pformat(ctx.obj)))
-    # loaded from config
-    ctx.obj['virtualenv_path'] = ctx.obj['ansible']['virtualenv']['path']
+    clickable.utils.load_config(ctx, __name__, __file__, 'clickables.yml')
     igloo_ansible_playbooks = os.path.join(ctx.obj['project_root'], 'dependencies', 'igloo-ansible-playbooks')
     clickable_igloo.symlink_folders(igloo_ansible_playbooks, ctx.obj['project_root'])
 
