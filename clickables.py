@@ -20,7 +20,7 @@ logger = logging.getLogger('stdout.clickable')
 # name consistently with click-infra entry point
 @click.group()
 @click.pass_context
-def igloo_ansible(ctx):
+def main(ctx):
     """
     Deployment or development tasks
     """
@@ -29,7 +29,7 @@ def igloo_ansible(ctx):
     clickable_igloo.symlink_folders(igloo_ansible_playbooks, ctx.obj['project_root'])
 
 
-full = clickable_ansible.run_playbook_task(igloo_ansible, 'full',
+full = clickable_ansible.run_playbook_task(main, 'full',
         'playbooks/igloo-playbooks/full.yml',
         short_help="Igloo full deployment",
         help="""Deploy a full Igloo stack.""",
