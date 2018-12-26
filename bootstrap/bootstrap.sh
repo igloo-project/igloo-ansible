@@ -6,8 +6,8 @@ THIS_PATH="$( dirname "$THIS_SCRIPT" )"
 DEFAULT_BOOTSTRAP_NAME="$( basename "$( dirname "$THIS_PATH" )" )"
 BOOTSTRAP_NAME="${BOOTSTRAP_NAME:=${DEFAULT_BOOTSTRAP_NAME}}"
 
-BOOTSTRAP_BRANCH=${BOOTSTRAP_BRANCH:=ft-ansible}
-BOOTSTRAP_PY="https://raw.githubusercontent.com/lalmeras/clickable/${BOOTSTRAP_BRANCH}/bootstrap/clickable_bootstrap/bootstrap.py"
+BOOTSTRAP_BRANCH=${BOOTSTRAP_BRANCH:=master}
+BOOTSTRAP_PY="https://raw.githubusercontent.com/lalmeras/clickable_bootstrap/${BOOTSTRAP_BRANCH}/bootstrap.py"
 
 # environment.yml and pyproject.toml must me in cwd
 cd "${THIS_PATH}"
