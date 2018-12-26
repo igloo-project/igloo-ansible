@@ -1,1 +1,1 @@
-../../../igloo-ansible-playbooks/inventory/group_vars/vagrant/00-igloo-vagrant.yml
+../../../dependencies/igloo-ansible-playbooks/inventory/group_vars/vagrant/00-igloo-vagrant.yml

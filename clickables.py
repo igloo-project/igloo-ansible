@@ -39,7 +39,7 @@ def igloo_ansible(ctx):
     logger.debug('loaded configuration: \n{}'.format(pprint.pformat(ctx.obj)))
     # loaded from config
     ctx.obj['virtualenv_path'] = ctx.obj['ansible']['virtualenv']['path']
-    igloo_ansible_playbooks = os.path.join(ctx.obj['project_root'], 'igloo-ansible-playbooks')
+    igloo_ansible_playbooks = os.path.join(ctx.obj['project_root'], 'dependencies', 'igloo-ansible-playbooks')
     clickable_igloo.symlink_folders(igloo_ansible_playbooks, ctx.obj['project_root'])
 
 

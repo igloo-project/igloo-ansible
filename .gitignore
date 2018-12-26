@@ -3,7 +3,7 @@
 delivery/*
 .ropeproject/
 log/*
-dependencies/*
+dependencies/galaxy-roles/
 pyenv/
 /vagrant/
 
