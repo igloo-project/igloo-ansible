@@ -8,7 +8,7 @@ This project is a template for igloo application deployment
   * ``git submodule add git@github.com:igloo-project/igloo-ansible-playbooks``
   * ``git submodule update --init --remote``
 * rename boostrap/igloo\_ansible to bootstrap/myproject.
-* in bootstrap/pyproject.toml, rename igloo\_ansible (1 occurrence) and igloo-ansible (2 occurrences)
+* in bootstrap/pyproject.toml, rename igloo-ansible (2 occurrences)
   to myproject.
 * run ``./bootstrap/bootstrap.sh``:
   * this script installs a miniconda environment with ``myproject`` command.

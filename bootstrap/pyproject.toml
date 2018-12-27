@@ -3,7 +3,6 @@ name = "igloo-ansible"
 version = "0.1.0"
 description = ""
 authors = ["Laurent Almeras <laurent.almeras@kobalt.fr>"]
-packages = [ { include = "igloo_ansible", from = "poetry" } ]
 
 [tool.poetry.dependencies]
 python = ">=3.5"
