@@ -10,5 +10,8 @@ localhost
 [vagrant]
 igloo.vagrant
 
+[debian]
+# add debian-based hosts
+
 [heb-production]
 virtual-machine.address ansible_user=root
