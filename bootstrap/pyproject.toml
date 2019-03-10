@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "igloo-ansible"
+name = "igloo_ansible"
+# this is a fake/unused version
 version = "0.1.0"
 description = ""
-authors = ["Laurent Almeras <laurent.almeras@kobalt.fr>"]
+authors = ""
 
 [tool.poetry.dependencies]
 python = ">=3.5"
-clickable = { git = "https://github.com/lalmeras/clickable.git", branch = "ft-ansible" }
+clickable = { git = "https://github.com/lalmeras/clickable.git", branch = "dev" }
 clickable_ansible = { git = "https://github.com/lalmeras/clickable_ansible.git", branch = "master" }
 clickable_igloo = { git = "https://github.com/igloo-project/clickable_igloo.git", branch = "master" }
 
