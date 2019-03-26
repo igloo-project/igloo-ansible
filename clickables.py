@@ -34,4 +34,4 @@ full = clickable_ansible.run_playbook_task(main, 'full',
         short_help="Igloo full deployment",
         help="""Deploy a full Igloo stack.""",
         # allow customization
-        common_hosts="igloo.vagrant")
+        common_hosts="all")
