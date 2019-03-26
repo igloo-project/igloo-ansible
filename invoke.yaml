@@ -1,7 +1,0 @@
----
-default_playbook: playbooks/default.yml
-virtualenv_path: .builddir/virtualenv
-ansible_default_args: --verbose
-ansible:
-  skip: no
-  version: '2.6.1'

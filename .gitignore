@@ -1,10 +1,10 @@
+.tools/
 .builddir/
 delivery/*
 .ropeproject/
-log/*
-dependencies/*
+dependencies/galaxy-roles/
 pyenv/
-/vagrant/
+run/
 
 *.retry
 *.pyc
@@ -14,3 +14,7 @@ docs/build/
 
 !*/.gitkeep
 
+# python related folders
+poetry.lock
+*.egg-info
+dist/

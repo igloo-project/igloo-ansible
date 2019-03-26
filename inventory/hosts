@@ -1,23 +1,18 @@
+localhost
+igloo.vagrant
+
 [all:vars]
 # bindings for firewalld available only for python3 in debian
 ansible_interpreter=/usr/bin/python3
 
 [local]
 localhost
-lalmeras
-jgonzalez
-flacreuse
-mpiva
 
 [vagrant]
 igloo.vagrant
 
+[debian]
+# add debian-based hosts
+
 [heb-production]
 virtual-machine.address ansible_user=root
-
-[vagrant:vars]
-ansible_ssh_common_args="-F {{ inventory_file | dirname }}/../vagrant/{{ inventory_hostname }}/ssh_config"
-
-[local:vars]
-ansible_connection=local
-ansible_host=localhost
