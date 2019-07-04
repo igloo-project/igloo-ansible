@@ -35,3 +35,10 @@ full = clickable_ansible.run_playbook_task(main, 'full',
         help="""Deploy a full Igloo stack.""",
         # allow customization
         common_hosts="all")
+
+gitlabcd = clickable_ansible.run_playbook_task(main, 'gitlabcd',
+        'playbooks/igloo-playbooks/include/gitlab-cd.yml',
+        short_help="Igloo Gitlab deployment",
+        help="""Deploy a project on a machine.""",
+        # allow customization
+        common_hosts="all")
