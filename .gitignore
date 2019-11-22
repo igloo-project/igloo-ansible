@@ -6,6 +6,8 @@ dependencies/galaxy-roles/
 pyenv/
 run/
 
+.vault_pass.txt
+
 *.retry
 *.pyc
 .*.swp
