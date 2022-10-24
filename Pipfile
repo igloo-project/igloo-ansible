@@ -4,9 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-clickable-ansible = {ref = "v1.2", git = "https://github.com/lalmeras/clickable_ansible"}
-clickable-igloo = {ref = "v1.0", git = "https://github.com/igloo-project/clickable_igloo"}
+clickable-ansible = "==1.4"
+clickable-igloo = "==1.1"
 
 [dev-packages]
-
-[requires]

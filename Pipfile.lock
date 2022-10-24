@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b0997a7ed6dba9845569c2facb15cd8bbd8f8c0cb50cb7bbefc21a38aff2d822"
+            "sha256": "c3bf90974076c0d58c50355ecb59ab6701674896a9ba5989a62feb71ad33c9f5"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -33,15 +33,33 @@
         },
         "clickable": {
             "git": "https://github.com/lalmeras/clickable",
-            "ref": "1e2880fc0c1a929bb09d156ae79570e8a6e8fe19"
+            "hashes": [
+                "sha256:bb64e74d50e991a91b2d41a4def3e3dce5df03d26aeddf2c89d7bb61db1e4864",
+                "sha256:c10d0c0ceb568c062b7a191e4a49fa12a5acc6f9c68b49896ce82b78dfea12ab"
+            ],
+            "markers": "python_version >= '3.6'",
+            "ref": "1e2880fc0c1a929bb09d156ae79570e8a6e8fe19",
+            "version": "==1.5"
         },
         "clickable-ansible": {
             "git": "https://github.com/lalmeras/clickable_ansible",
-            "ref": "ff8b3f88f1ca79576a73a31f94fbf93ac3af681c"
+            "hashes": [
+                "sha256:6831c7774200ed87ee906ece533dd6a9a47b5ad0b45b84f16988c72f393c9410",
+                "sha256:99f90d0dc3a9bd021a8db54050078673708d0404de791587650a279944ecb2c0"
+            ],
+            "index": "pypi",
+            "ref": "ff8b3f88f1ca79576a73a31f94fbf93ac3af681c",
+            "version": "==1.4"
         },
         "clickable-igloo": {
             "git": "https://github.com/igloo-project/clickable_igloo",
-            "ref": "8cdb84ffcaad2352e7d59979e212edb497f5310c"
+            "hashes": [
+                "sha256:79641bd930ed90a0dcb7b6356520d610865b3e763e0415649a9bace93d37d5c0",
+                "sha256:d554e501225164b31785e63a24f8cbae4a68beb17ed1667e9f0cc60fbc3c820f"
+            ],
+            "index": "pypi",
+            "ref": "8cdb84ffcaad2352e7d59979e212edb497f5310c",
+            "version": "==1.1"
         },
         "coloredlogs": {
             "hashes": [

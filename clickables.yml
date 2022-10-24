@@ -5,6 +5,5 @@ ansible:
     selinux: true
     path: .tools/virtualenv
     requirements:
-      - ansible == 2.10.7
-      - ovh
+      - ansible == 6.5.0
 interpreter: /usr/bin/python
