@@ -1,0 +1,4 @@
+---
+
+# Permet de configurer Tomcat avec des options compatibles Java 17
+playbook_tomcat_java17: true
