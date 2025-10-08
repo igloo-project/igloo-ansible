@@ -1,18 +1,4 @@
-localhost
-igloo.vagrant
-
-[all:vars]
-# bindings for firewalld available only for python3 in debian
-ansible_interpreter=/usr/bin/python3
-
-[local]
-localhost
-
-[vagrant]
-igloo.vagrant
-
-[debian]
-# add debian-based hosts
+mon.serveur.tld
 
 [heb-production]
-virtual-machine.address ansible_user=root
+mon.serveur.tld

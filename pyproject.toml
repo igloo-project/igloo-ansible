@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "igloo-ansible"
+version = "1.0.0"
+requires-python = ">=3.9"
+
+dependencies = [
+  "ansible == 11.10.0"
+]
+
+[tool.hatch.envs.default.env-vars]
+ANSIBLE_CONFIG = "./inventory/ansible.cfg"
+
+[tool.hatch.envs.default.scripts]
+## Commandes générales
+kobalt-galaxy = "env ANSIBLE_COLLECTIONS_PATH=./dependencies/galaxy-collections/ ANSIBLE_ROLES_PATH=./dependencies/galaxy-roles/ ansible-galaxy install --force -r dependencies/requirements.yml"
+
+# NE SURTOUT PAS ENLEVER LE {args} ; c'est lui va transmettre entre autre le --check --diff
+kobalt-playbook = 'kobalt-galaxy && ansible-playbook --vault-password-file .vault_pass.txt -e common_hosts=all {args}'
+
+list-commands = [
+    "echo 'Commands:'; hatch env show --json | jq --raw-output '.default.scripts | keys[]'"
+]
+
+## Utilitaires
+# Liste des hosts d'un groupe (1er paramètre)
+utilities-inventory = "ansible --list-hosts all"
+# Modification du fichier d'inventaire vault secure.yml
+utilities-secure = "ansible-vault edit ./inventory/group_vars/all/secure.yml {args}"
+
+## Commandes spécifiques
+
+#
+# TODO reprendre les commandes spécifiques
+#
+
+# Livraison continue
+full = "kobalt-playbook playbooks/igloo-playbooks/full.yml"
+delivery = "kobalt-playbook playbooks/igloo-playbooks/include/gitlab-cd.yml"
+
+# Il faut ignorer les autres ressources python
+[tool.ruff]
+exclude = ["roles", "playbooks", "dependencies", "library", "lookup_plugins"]

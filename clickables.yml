@@ -1,9 +1,0 @@
----
-default_playbook: playbooks/default.yml
-ansible:
-  virtualenv:
-    selinux: true
-    path: .tools/virtualenv
-    requirements:
-      - ansible == 11.10.0
-interpreter: /usr/bin/python
