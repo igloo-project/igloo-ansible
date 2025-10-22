@@ -2,3 +2,5 @@
 
 # Permet de configurer Tomcat avec des options compatibles Java 17
 playbook_tomcat_java17: true
+# sudoers pour l'installation des mises à jour des ressources statiques
+playbook_sudoers_deb: true
