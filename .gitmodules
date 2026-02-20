@@ -1,4 +1,4 @@
 [submodule "dependencies/igloo-ansible-playbooks"]
 	path = dependencies/igloo-ansible-playbooks
 	url = https://github.com/igloo-project/igloo-ansible-playbooks.git
-	branch = master
+	branch = main
