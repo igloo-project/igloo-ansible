@@ -1,21 +1,26 @@
 ---
+roles:
 # ansible role requirements
 - name: powo.utils
   src: git+https://github.com/powo-roles/powo.utils.git
   version: main
-
 - name: postgresql
   src: git+https://github.com/igloo-project/roles-postgresql
   version: main
-
 - name: postgresql_cluster
   src: git+https://github.com/igloo-project/roles-postgresql-cluster
   version: main
-
-- name: igloo-ansible-roles
-  src: git+https://github.com/igloo-project/igloo-ansible-roles.git
-  version: main
-
 - name: letsencrypt
   src: git+https://github.com/igloo-project/ansible-letsencrypt.git
   version: main
+- name: restic
+  src: https://github.com/powo-roles/powo.restic.git
+  version: main
+collections:
+# remplacer ft-collections par la version lors de la bascule versioning
+- name: https://github.com/igloo-project/igloo-ansible-roles.git
+  type: git
+  version: ft-collections
+- name: https://github.com/igloo-project/ansible-rbw
+  type: git
+  version: v1.0.0

@@ -2,7 +2,7 @@
 .builddir/
 delivery/*
 .ropeproject/
-dependencies/galaxy-roles/
+dependencies/*
 pyenv/
 run/
 
@@ -15,6 +15,7 @@ run/
 docs/build/
 
 !*/.gitkeep
+!dependencies/requirements.yml
 
 # python related folders
 poetry.lock

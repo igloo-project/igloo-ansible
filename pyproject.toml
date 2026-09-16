@@ -38,8 +38,8 @@ utilities-secure = "ansible-vault edit ./inventory/group_vars/all/secure.yml {ar
 #
 
 # Livraison continue
-full = "kobalt-playbook playbooks/igloo-playbooks/full.yml"
-delivery = "kobalt-playbook playbooks/igloo-playbooks/include/gitlab-cd.yml"
+full = "kobalt-playbook igloo.main.full"
+delivery = "kobalt-playbook igloo.main.include.gitlab_cd"
 
 # Il faut ignorer les autres ressources python
 [tool.ruff]
